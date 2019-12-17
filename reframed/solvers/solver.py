@@ -220,4 +220,14 @@ class Solver(object):
         raise Exception('Not implemented for this solver.')
 
 
+def set_default_parameter(parameter, value):
+    """ Change the value for a given parameter (see list of supported parameters).
+
+    Arguments:
+        parameter (Parameter): parameter type
+        value (float): parameter value
+    """
+
+    global default_parameters
+    default_parameters[parameter] = value
 

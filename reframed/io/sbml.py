@@ -660,12 +660,12 @@ def save_cobra_parameters(model, sbml_model):
         kineticLaw = sbml_reaction.createKineticLaw()
         kineticLaw.setFormula('0')
 
-        lb = CobraDefaults.LOWER_BOUND.value if isinf(reaction.lb) else reaction.lb
+        lb = CobraDefaults.LOWER_BOUND.value if reaction.lb is None or isinf(reaction.lb) else reaction.lb
         lbParameter = kineticLaw.createParameter()
         lbParameter.setId(CobraTags.LB_TAG.value)
         lbParameter.setValue(lb)
 
-        ub = CobraDefaults.UPPER_BOUND.value if isinf(reaction.ub) else reaction.ub
+        ub = CobraDefaults.UPPER_BOUND.value if reaction.ub is None or isinf(reaction.ub) else reaction.ub
         ubParameter = kineticLaw.createParameter()
         ubParameter.setId(CobraTags.UB_TAG.value)
         ubParameter.setValue(ub)

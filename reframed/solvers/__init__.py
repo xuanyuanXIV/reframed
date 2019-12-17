@@ -1,4 +1,4 @@
-from .solver import Parameter
+from .solver import Parameter, set_default_parameter
 
 solvers = dict()
 
